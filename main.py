@@ -105,16 +105,16 @@ def main():
      
     # Hyperparameters
     params = {
-        'n_factors': 50,
+        'n_factors': 200,
         'learning_rate': 0.005,
         'regularization': 0.02,
-        'n_epochs': 100
+        'n_epochs': 60
     }
     # Train final model with best parameters
     print("\nTraining model...")
     model = MatrixFactorization(n_users, n_movies, **params)
     model.fit(train_ratings)
-    
+     
     # Make predictions on test queries
     print("Making predictions on test queries...")
     predictions = [model.predict(user_id, movie_id) for user_id, movie_id in test_queries]
